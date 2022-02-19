@@ -20,6 +20,7 @@ const reactionSchema = new Schema(
       required: true,
     },
 // TODO:* *use a 'getter method' to format the timestap on query?
+//review? https://stackoverflow.com/questions/70724966/how-to-use-getter-or-setter-with-mongoose-timestamps
     createdAt: {
       type: Date,
       default: Date.now,
