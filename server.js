@@ -5,8 +5,9 @@ const mongodb = require('mongodb').MongoClient;
 const app = express();
 const port = 3001;
 
-//for some readon I have to use 0.0.0.0 to connect to the local instance of Mongodb
-const connectionStringURI = `mongodb://0.0.0.0:27017/socialNetwork_db`;
+//for some readon I have to use 0.0.0.0 to connect to the local instance of Mongodb; added db name requirement
+let dbName = "socialMedia";
+const connectionStringURI = `mongodb://0.0.0.0:27017/${dbName}`;
 
 //a variable to hold the connection
 let db;

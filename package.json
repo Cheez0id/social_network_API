@@ -1,7 +1,7 @@
 {
   "name": "social_network_api",
   "version": "1.0.0",
-  "description": "Using MongoDB, Mongoose, and Express, I am creating a APU for a social network application.  I may also use a JavaScript date library or use the native JS `Date` object to format timestamps.\r This will all be back-end.",
+  "description": "Using MongoDB, Mongoose, and Express, I am creating a API for a social network application.  I may also use a JavaScript date library or use the native JS `Date` object to format timestamps.\r This will all be back-end.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -19,6 +19,7 @@
   "homepage": "https://github.com/Cheez0id/social_network_API#readme",
   "dependencies": {
     "express": "^4.17.2",
+    "inquirer": "^8.2.0",
     "mongodb": "^4.3.1",
     "mongoose": "^6.2.1"
   }

@@ -5,7 +5,7 @@ const Reaction = require('./Reaction');
 // Create a virtual called `reactionCount` that retrieves the length of the thought's `reactions` array field on query.
 
 // Schema to create Post model
-const reactionSchema = new Schema(
+const thoughtSchema = new Schema(
   {
     thoughtText: {
       type: Boolean,
@@ -46,6 +46,6 @@ reactionCount
   });
 
 
-const Thought = model('thought', reactionSchema);
+const Thought = model('thought', thoughtSchema);
 
 module.exports = Thought;
