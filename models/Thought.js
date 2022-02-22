@@ -1,3 +1,4 @@
+const { text } = require('express');
 const { Schema, model } = require('mongoose');
 const Reaction = require('./Reaction');
 
@@ -8,7 +9,7 @@ const Reaction = require('./Reaction');
 const thoughtSchema = new Schema(
   {
     thoughtText: {
-      type: Boolean,
+      type: String,
       default: false,
       match: `/^.{1,280}$/`
     },
@@ -39,10 +40,11 @@ reactions: [
 );
 
 // Create a virtual property `reactions` that gets the amount of reactions per video
-reactionCount
-  .virtual('getReactions')
+thoughtSchema
+  .virtual('reactionCout')
     .get(function () {
-    return this.responses.length;
+      const getReactions=this.reponse.length;
+    return getReactions;
   });
 
 
