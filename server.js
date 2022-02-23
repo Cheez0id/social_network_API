@@ -4,13 +4,10 @@ const mongodb = require('mongodb').MongoClient;
 const db = require('./config/connection');
 const newUser = require('./models/User');
 
+const PORT = process.env.PORT || 3001;
 const app = express();
-const PORT = 3001;
 
-// const connectionStringURI = `mongodb://0.0.0.0:27017/socialMediaDB`;
-
-
-
+//connect from the connection under config
 db.once('open', () => {
   app.listen(PORT, () => {
     console.log(`API server running on port ${PORT}!`);
@@ -18,8 +15,6 @@ db.once('open', () => {
 });
 
 app.use(express.json());
-
-
 
 
 ///I was having so much trouble with routing that I went back to earlier lessons just to see some routes work
