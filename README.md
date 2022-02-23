@@ -12,6 +12,9 @@ SO THAT my website can handle large amounts of unstructured data
 ```
 </details>
 
+##Link to Video
+https://drive.google.com/file/d/15JwRFydPZ_h_6FmCOo9AcucGXar4Po4K/view?usp=sharing
+
 <details><summary>## Acceptance Criteria</summary>
 ```md
 GIVEN a social network API
