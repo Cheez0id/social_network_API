@@ -1,5 +1,5 @@
 const { Schema, model } = require('mongoose');
-const User = require('./Reaction');
+const Reaction = require('./Reaction');
 
 // **Schema Settings**:
 // Create a virtual called `reactionCount` that retrieves the length of the thought's `reactions` array field on query.

@@ -2,7 +2,7 @@
 const express = require('express');
 const mongodb = require('mongodb').MongoClient;
 const db = require('./config/connection');
-// const newUser = require('./models/User');
+const newUser = require('./models/User');
 
 const app = express();
 const PORT = 3001;
