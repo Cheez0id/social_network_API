@@ -19,29 +19,9 @@ db.once('open', () => {
 app.use(express.json());
 
 
-///I was having so much trouble with routing that I went back to earlier lessons just to see some routes work
-app.post('/newUser', (req, res) => {
-  // Use db connection to add a document
-  db.collection('user').insertOne(
-    { username: req.body.username, email: req.body.email},
-    (err, results) => {
-      if (err) throw err;
-      res.json(results);
-    }
-  );
-});
 
-//shows things that are added via above post
-app.get('/userList', (req, res) => {
-  db.collection('user')
-    .find({})
-    .toArray((err, results) => {
-      if (err) throw err;
-      res.send(results);
-    });
-  });
 
-//to try and create a new user
+//creates a new User with the model we have!
 app.post('/createUser', (req, res) => {
   const newUser = new User({username: req.body.username, email: req.body.email});
   newUser.save();
@@ -53,7 +33,7 @@ app.post('/createUser', (req, res) => {
   }
 });
 
-//shows an empty array
+//shows the users collection in the socialMedia database YAY!!
   app.get('/lookAtUsers', (req, res) =>{
     User.find({}, (err, result) => {
       if (err) {
@@ -101,3 +81,27 @@ app.post('/createUser', (req, res) => {
 //a variable to hold the connection
 // let db;
 // db = client.db();
+
+
+//the below WORKS. but it is not the code you are looking for
+// ///I was having so much trouble with routing that I went back to earlier lessons just to see some routes work
+// app.post('/newUser', (req, res) => {
+//   // Use db connection to add a document
+//   db.collection('user').insertOne(
+//     { username: req.body.username, email: req.body.email},
+//     (err, results) => {
+//       if (err) throw err;
+//       res.json(results);
+//     }
+//   );
+// });
+
+// //shows things that are added via above post
+// app.get('/userList', (req, res) => {
+//   db.collection('user')
+//     .find({})
+//     .toArray((err, results) => {
+//       if (err) throw err;
+//       res.send(results);
+//     });
+//   });
