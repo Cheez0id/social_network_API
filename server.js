@@ -48,7 +48,6 @@ app.get("/lookAtUsers", (req, res) => {
 	});
 });
 
-
 // finds one user by username
 app.get('/findUser/:username', (req, res) => {
   User.findOne({ username: req.params.username }, (err, result) => {
@@ -59,15 +58,33 @@ app.get('/findUser/:username', (req, res) => {
       res.status(500).json({ message: 'something went wrong' });
     }})});
 
-//an attempt at a put - working on the Get first to test getting 1 entry with the : route but not working
+
+
+//A route to update one username
 app.post('/updateUser/:username', (req, res) => {
-  User.findOne({ username: req.params.username }, (err, result) => {
+  User.findOneAndUpdate({ username: "badusername"}, {username: req.params.username}, { new: true }, (err, result) => {
     if (result) {
       res.status(200).json(result);
     } else {
       console.log('Uh Oh, something went wrong');
       res.status(500).json({ message: 'something went wrong' });
     }})});
+
+// Finds document that matches and deletes
+app.delete('/deleteUser/:username', (req, res) => {
+  User.findOneAndDelete({ username: req.params.username }, (err, result) => {
+    if (result) {
+      res.status(200).json(result);
+      console.log(`Deleted: ${result}`);
+    } else {
+      console.log('Uh Oh, something went wrong');
+      res.status(500).json({ message: 'something went wrong' });
+    }
+  });
+});
+
+
+
 
 //shows the thoughts collection in the socialMedia database
 app.get("/lookAtThoughts", (req, res) => {
